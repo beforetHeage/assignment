@@ -13,8 +13,6 @@
 
 <%@include file="header.jsp"%>
 
-<!--random comment-->
-
 <div class="container">
     <div class="row">
         <div class="col-md-8 order-md-1">

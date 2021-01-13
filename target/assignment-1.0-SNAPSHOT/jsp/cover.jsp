@@ -5,9 +5,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.79.0">
     <title>Sticky Footer Template · Bootstrap v5.0</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sticky-footer/">
@@ -32,21 +29,19 @@
             }
         }
     </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="sticky-footer.css" rel="stylesheet">
 </head>
 <body class="d-flex flex-column h-100">
 
-<%@include file="header.jsp"%>
+<%@include file="header-cover.jsp"%>
 
 <!-- Begin page content -->
 <main class="flex-shrink-0">
     <div class="container">
-        <h1 class="mt-5">Title</h1>
-        <p class="lead">Payment completed successfully!</p>
-        <p>Use <a href="../examples/sticky-footer-navbar/">homepage</a> to come back.</p>
+
+    </div>
+    <div class="container">
+        <h1 class="mt-5">Welcome <% out.println(request.getParameter("firstname") + " " + request.getParameter("lastname"));%></h1>
+        <p class="lead">Your payment completed successfully!</p>
     </div>
 </main>
 

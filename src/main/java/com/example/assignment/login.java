@@ -1,5 +1,6 @@
 package com.example.assignment;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 
 import javax.servlet.annotation.WebServlet;
@@ -11,10 +12,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-@WebServlet(name = "login", urlPatterns = {"assignment_war_exploded/login", "/login"})
+@WebServlet(name = "login", urlPatterns = {"assignment_war_exploded/billing", "/billing"})
 public class login extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        CheckData check = new CheckData();
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         String firstName = request.getParameter("firstname");
@@ -29,25 +31,37 @@ public class login extends HttpServlet {
         String cc_name = request.getParameter("cc-name");
         String cc_number = request.getParameter("cc-number");
         String cc_expiration = request.getParameter("cc-expiration");
-        String cc_ccv = request.getParameter("cc_ccv");
-        String title = "Using GET Method to Read Form Data";
-        String docType = "<!doctype html>\n";
-        out.println(docType +
-                "<html>\n" +
-                "<head><title>" + title + "</title></head>\n" +
-                "<body bgcolor = \"#f0f0f0\">\n" +
-                "<h1 align = \"center\">" + title + "</h1>\n" +
-                "<ul>\n" +
-                "  <li><b>First Name</b>: "
-                + firstName + "\n" +
-                "  <li><b>Last Name</b>: "
-                + lastName + "\n" +
-                "  <li><b>Username</b>: "
-                + username + "\n" +
-                "</ul>\n" +
-                "</body>"+
-                "</html>"
-        );
+        String cc_ccv = request.getParameter("cc-ccv");
+        String doctype = "<!doctype html>";
+        if(check.checkUsername(firstName)
+                && check.checkSurname(lastName)
+                && check.checkUsername(username)
+                && check.checkemail(email)
+                && check.checkAddress(addr1)
+                && check.countryChecker(country)
+                && check.zipChecker(zip)){
+            if(CheckBills.checkBill(cc_number,cc_ccv)){
+                RequestDispatcher rd = request.getRequestDispatcher("jsp/cover.jsp");
+                rd.forward(request,response);
+                //response.sendRedirect("assignment_war_exploded/jsp/cover.jsp");
+            } else{
+                out.println(doctype + "<html>" +
+                        "<body>" +
+                        "Given Billing information is incorrect" +
+                        "</body>" +
+                        "</html>"
+                        );
+                response.sendRedirect("jsp/billing.jsp");
+            }
+        } else{
+            out.println(doctype + "<html>" +
+                    "<body>" +
+                    "Given Username information is incorrect" +
+                    "</body>" +
+                    "</html>"
+            );
+            response.sendRedirect("jsp/billing.jsp");
+        }
     }
 
     // Method to handle POST method request.
