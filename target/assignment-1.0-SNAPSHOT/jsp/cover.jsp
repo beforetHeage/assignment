@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!doctype html>
 <html lang="en" class="h-100">
 <head>
@@ -7,9 +8,9 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.79.0">
-    <title>Cover Template · Bootstrap v5.0</title>
+    <title>Sticky Footer Template · Bootstrap v5.0</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sticky-footer/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
 
@@ -34,25 +35,23 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
+    <link href="sticky-footer.css" rel="stylesheet">
 </head>
-<body class="d-flex h-100 text-center text-white bg-dark">
+<body class="d-flex flex-column h-100">
 
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<%@include file="header.jsp"%>
 
-    <%@include file="cover-header.jsp"%>
-
-    <main class="px-3">
-        <h1>Title</h1>
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+    <div class="container">
+        <h1 class="mt-5">Title</h1>
         <p class="lead">Payment completed successfully!</p>
-        <p class="lead">
-            <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-blue">Learn more</a>
-        </p>
-    </main>
+        <p>Use <a href="../examples/sticky-footer-navbar/">homepage</a> to come back.</p>
+    </div>
+</main>
 
-    <%@include file="cover-footer.jsp"%>
+<%@include file="footer.jsp"%>
 
-</div>
 </body>
 </html>
 
