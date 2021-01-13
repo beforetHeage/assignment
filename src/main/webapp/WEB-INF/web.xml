@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <servlet>
-        <servlet-name>FileUpload</servlet-name>
-        <servlet-class>com.example.FileUpload</servlet-class>
+        <servlet-name>login</servlet-name>
+        <servlet-class>com.example.assignment.login</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>FileUpload</servlet-name>
-        <url-pattern>/upload</url-pattern>
+        <servlet-name>login</servlet-name>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
 </web-app>
