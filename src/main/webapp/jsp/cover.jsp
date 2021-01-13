@@ -45,7 +45,7 @@
 <main class="flex-shrink-0">
     <div class="container">
         <h1 class="mt-5">Title</h1>
-        <p class="lead">Payment completed successfully!</p>
+        <p class="lead">Your payment completed successfully!</p>
         <p>Use <a href="../examples/sticky-footer-navbar/">homepage</a> to come back.</p>
     </div>
 </main>
